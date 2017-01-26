@@ -1,6 +1,3 @@
-## Put comments here that give an overall description of what your
-## functions do
-
 ## This "list" that is able to set the value of the matrix to be inverted, 
 ## to get the value of the matrix to be inverted
 ## to set the value of the inverse matrix
@@ -24,7 +21,7 @@ makeCacheMatrix <- function(x = matrix()) {
 ## This function checks if the inverse exists; if it does then it retrieves it
 ## otherwise it creates it and sets it in the global environment
 
-cacheSolve <- function(x) {
+cacheSolve <- function(x,...) {
   ## Return a matrix that is the inverse of 'x'
   m <- x$getinverse()
   if(!is.null(m)) {
@@ -32,7 +29,7 @@ cacheSolve <- function(x) {
     return(m)
   }
   data <- x$get()
-  m <- solve(data)
+  m <- solve(data,...)
   x$setinverse(m)
   m
 }
